@@ -6,9 +6,9 @@ function Projects({projects, onNewProjectClick, onProjectSelect}){
 
     return (
         <div className="flex">
-            <div id="default-sidebar" className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
+            <div id="default-sidebar" className="w-1/3 px-8 py-16 bg-gradient-to-b from-stone-800 via-grey-500 text-stone-50 md:w-72 rounded-r-xl">
                 <h1 className="mb-5">YOUR PROJECTS</h1>
-                    <div className="flex flex-col w-1/3">
+                    <div className="flex flex-col w-2/3">
                     
                         {projects.length > 0 && (
                             projects.map((project, i) => (
