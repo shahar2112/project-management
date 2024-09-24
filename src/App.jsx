@@ -47,7 +47,7 @@ function App() {
   }
 
   return (
-    <div className="flex h-screen min-h-screen bg-gradient-to-r from-blue-200 via-grey-500 to-grey-200 flex items-center justify-center">
+    <div className="flex h-screen min-h-screen bg-gradient-to-b from-blue-200 via-grey-500 to-grey-200">
       <Projects 
         projects={projects} 
         onNewProjectClick={handleNewProjectClick} 
