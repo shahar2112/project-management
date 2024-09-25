@@ -1,4 +1,5 @@
 import Tasks from "./Tasks";
+import Button from "./Button";
 import { useState } from "react";
 import { FaPencilAlt, FaTrash } from "react-icons/fa";
 
@@ -52,7 +53,11 @@ export default function Project({currProject, onNewProjectClick, onUpdateProject
                 <img src="logo.png" alt="Picture when no projects where created" className="size-24  h-24  mb-4"></img>
                 <h1 className="text-2xl font-semibold">No Project Selected</h1>
                 <p  className="text-lg mb-4">Select a project or get started with a new one</p>
-                <button onClick={onNewProjectClick} className="bg-stone-500 px-8 text-tahiti rounded-xl">Create new project</button>
+                <Button 
+                    label="Create new project" 
+                    onClick={onNewProjectClick} 
+                    className="bg-stone-500"
+                />
             </div>
         ) : (
             <div 
@@ -77,14 +82,18 @@ export default function Project({currProject, onNewProjectClick, onUpdateProject
                             className="text-md text-gray-500 mt-8"
                             value={editedProject.dueDate}
                             onChange={(e) => setEditedProject({ ...editedProject, dueDate: e.target.value })}
-                        />
-                        <div className="mt-4">
-                            <button className="bg-green-500 text-white px-4 py-2 rounded-lg" onClick={toggleEditMode}>
-                                Save
-                            </button>
-                            <button className="ml-2 bg-red-500 text-white px-4 py-2 rounded-lg" onClick={handleCancelEdit}>
-                                Cancel
-                            </button>
+                        /> 
+                        <div className="mt-4 space-x-4">
+                            <Button 
+                                label="Save" 
+                                onClick={toggleEditMode} 
+                                className="bg-blue-500"
+                            />
+                            <Button 
+                                label="Cancel" 
+                                onClick={handleCancelEdit} 
+                                className="bg-blue-300"
+                            />
                         </div>
                     </>
                 ) : (

@@ -1,4 +1,5 @@
 import Input from "./Input";
+import Button from "./Button";
 import {useRef, useState} from "react";
 
 export default function NewProject({onSaveClick, onCancelClick}){
@@ -8,7 +9,7 @@ export default function NewProject({onSaveClick, onCancelClick}){
 
     const [titleError, setTitleError] = useState(false);
 
-    function handleClick(){
+    function handleSaveClick(){
         const newProject = {
             title: projectTitle.current.value,
             desc: projectDesc.current.value,
@@ -46,8 +47,16 @@ export default function NewProject({onSaveClick, onCancelClick}){
                 ></Input>
             </div>
             <div className="mt-8 justify-end space-x-4 mb-8">
-                <button className="bg-blue-300 px-8 text-white rounded-xl" onClick={onCancelClick}>Cancel</button>
-                <button className="bg-blue-500 px-8 text-white rounded-xl" onClick={handleClick}>Save</button>
+                <Button 
+                    label="Save" 
+                    onClick={handleSaveClick} 
+                    className="bg-blue-500"
+                />
+                <Button 
+                    label="Cancel" 
+                    onClick={onCancelClick} 
+                    className="bg-blue-300"
+                />
             </div>
         </div>
     )
