@@ -26,21 +26,23 @@ export default function NewProject({onSaveClick, onCancelClick}){
     }
 
     return ( 
-        <div className="flex flex-col">
-            <div className="flex flex-col space-y-4">
+        <>
+            <div className="w-1/3 flex flex-col space-y-4 ">
                 <Input 
                     ref={projectTitle} 
                     type='text' 
                     header='TITLE'
-                    className={titleError ? "border border-red-500" : ""}
+                    className={titleError ? "border border-red-500 rounded-md" : "rounded-md"}
                 ></Input>
                 {titleError && <p className="text-red-500 text-sm mt-1">Please add a title to the project</p>}
+                <h2 className="text-xl text-blue-800 font-bold mb-2">DESCRIPTION</h2>
+                <textarea 
+                    ref={projectDesc}
+                    className="w-full h-32 p-4 text-lg border border-gray-300 rounded-md"
+                    placeholder="Enter project description"
+                />
                 <Input 
-                    ref={projectDesc} 
-                    type='text' 
-                    header='DESCRIPTION'
-                ></Input>
-                <Input 
+                    className="rounded-xl"
                     ref={projectDueDate} 
                     type='date' 
                     header='DUE DATE'
@@ -58,6 +60,6 @@ export default function NewProject({onSaveClick, onCancelClick}){
                     className="bg-blue-300"
                 />
             </div>
-        </div>
+        </>
     )
 }

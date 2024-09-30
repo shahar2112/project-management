@@ -49,14 +49,14 @@ export default function Project({currProject, onNewProjectClick, onUpdateProject
 
     return (
         currProject == null ? (
-            <div className="w-2/3 flex flex-col justify-center items-center text-center">
-                <img src="logo.png" alt="Picture when no projects where created" className="size-24  h-24  mb-4"></img>
-                <h1 className="text-2xl font-semibold">No Project Selected</h1>
-                <p  className="text-lg mb-4">Select a project or get started with a new one</p>
+            <div className="flex flex-col justify-center items-center text-center">
+                <img src="logo.png" alt="Picture when no projects where created" className="w-48 h-48 mb-8"></img>
+                <h1 className="text-4xl font-bold mb-4">No Project Selected</h1>
+                <p  className="text-2xl mb-8">Select a project or get started with a new one</p>
                 <Button 
                     label="Create new project" 
                     onClick={onNewProjectClick} 
-                    className="bg-stone-500"
+                    className="bg-stone-500 px-6 py-3 text-lg"
                 />
             </div>
         ) : (

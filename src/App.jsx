@@ -2,6 +2,7 @@ import { useState } from "react";
 import Projects from "./components/Projects";
 import Project from "./components/Project";
 import NewProject from "./components/NewProject";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -19,12 +20,13 @@ function App() {
   function handleNewProjectSave(project){
     const newProject = {
       ...project,
+      id: uuidv4(), // Generate a unique ID
       tasks: []
     };
+    
     setProjects(prevProjects => [...prevProjects, newProject]);
     setIsNewProject(false);
     setCurrProject(null);
-    console.log('projects ------->:');
   }
 
   function handleProjectSelect(project){
@@ -32,10 +34,10 @@ function App() {
   }
 
   function handleUpdateProject(project){
-    setCurrProject(project);
+    setCurrProject(project);    
     setProjects(prevProjects =>
       prevProjects.map(updatedProject =>
-        updatedProject.title === project.title ? project : updatedProject
+        updatedProject.id === project.id ? project : updatedProject
       )
     );
   }
